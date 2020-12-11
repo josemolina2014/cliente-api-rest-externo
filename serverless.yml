@@ -22,18 +22,22 @@ functions:
       - http:
           path: ${self:provider.environment.PATH_RESOURCES}/getAll
           method: get
-          request:
-            parameters:
-              querystrings:
-                name: true
+          
     memorySize: 128
   directCall:
-      handler: handler.directCall
-      events:
-        - http:
-            path: ${self:provider.environment.PATH_RESOURCES}/directCall
-            method: get
-      memorySize: 128
+    handler: handler.directCall
+    events:
+      - http:
+          path: ${self:provider.environment.PATH_RESOURCES}/directCall
+          method: get
+    memorySize: 128
+  nasaAPI:
+    handler: handler.nasaAPI
+    events:
+      - http:
+          path: ${self:provider.environment.PATH_RESOURCES}/nasaAPI
+          method: get
+    memorySize: 128
 
 
 
