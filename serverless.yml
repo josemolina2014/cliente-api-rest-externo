@@ -20,9 +20,13 @@ functions:
     handler: handler.invokeWS
     events:
       - http:
-          path: ${self:provider.environment.PATH_RESOURCES}/getAll
+          path: ${self:provider.environment.PATH_RESOURCES}/getByName
           method: get
-          
+          cors: true
+          request:
+            parameters:
+              querystrings:
+                name: true          
     memorySize: 128
   directCall:
     handler: handler.directCall
